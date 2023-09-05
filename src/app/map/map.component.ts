@@ -27,13 +27,27 @@ export class MapComponent implements OnInit {
       { color: '#ff7800', weight: 1 }
     ).addTo(this.map);
 
-    L.marker([59.9386, 30.188478])
+    let marker = L.marker([59.9386, 30.188478])
       .bindTooltip('Питер', {
         permanent: true,
         direction: 'top',
         offset: L.point(-14, -5),
       })
-      .addTo(this.map);
+      .addTo(this.map)
+      .on('click', () => {
+        alert('OK');
+      });
+
+    let i = 0;
+
+    setInterval(() => {
+      i += Math.floor(Math.random() * 5) / 10000;
+      marker.setLatLng([59.93 + i, 30.188 + i]);
+    }, 30);
+
+    // setInterval(() => {
+    //   this.map.flyTo([59.93 + i, 30.188 + i], 14);
+    // }, 30);
 
     const tiles = L.tileLayer(
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
