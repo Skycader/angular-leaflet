@@ -1,3 +1,5 @@
+#Для подключения Leaflet, нужно также добавить стили в Angular.json
+
 # AngularLeafletExample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
